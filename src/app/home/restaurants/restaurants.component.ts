@@ -2,12 +2,13 @@ import { DataService } from './../../services/data.service';
 import { ApiService } from '../../services/api.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgClass, SlicePipe, KeyValuePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-restaurants',
-  templateUrl: './restaurants.component.html',
-  styleUrls: ['./restaurants.component.scss'],
-  standalone: false
+    selector: 'app-restaurants',
+    templateUrl: './restaurants.component.html',
+    styleUrls: ['./restaurants.component.scss'],
+    imports: [NgClass, SlicePipe, KeyValuePipe]
 })
 export class RestaurantsComponent implements OnInit {
   allRestaurantList = [];

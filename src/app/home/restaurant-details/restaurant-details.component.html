@@ -1,90 +1,89 @@
-<section *ngIf="selectedRestaurantDetail.length">
-  <div class="d-flex">
-    <div class="w-50 update-size details-format">
-      <h2>{{ selectedRestaurantDetail[0].restaurantName }}</h2>
-
-      <p>
-        {{ selectedRestaurantDetail[0].restaurantDescription }}
-      </p>
-      <div class="d-flex align-items-center">
-        <img src="assets/images/phone.svg" alt="" />
-        <p class="split-line details">
-          {{ selectedRestaurantDetail[0].openingHours }}
+@if (selectedRestaurantDetail.length) {
+  <section>
+    <div class="d-flex">
+      <div class="w-50 update-size details-format">
+        <h2>{{ selectedRestaurantDetail[0].restaurantName }}</h2>
+        <p>
+          {{ selectedRestaurantDetail[0].restaurantDescription }}
         </p>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/phone.svg" alt="" />
+          <p class="split-line details">
+            {{ selectedRestaurantDetail[0].openingHours }}
+          </p>
+        </div>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/phone.svg" alt="" />
+          <p class="details">
+            {{ selectedRestaurantDetail[0].contactNumber }}
+          </p>
+        </div>
+        <div class="d-flex align-items-center">
+          <img src="assets/images/Vector.svg" alt="" />
+          <p class="details">
+            {{ selectedRestaurantDetail[0].websiteUrl }}
+          </p>
+        </div>
       </div>
-
-      <div class="d-flex align-items-center">
-        <img src="assets/images/phone.svg" alt="" />
-
-        <p class="details">
-          {{ selectedRestaurantDetail[0].contactNumber }}
-        </p>
-      </div>
-
-      <div class="d-flex align-items-center">
-        <img src="assets/images/Vector.svg" alt="" />
-        <p class="details">
-          {{ selectedRestaurantDetail[0].websiteUrl }}
-        </p>
-      </div>
-    </div>
-
-    <div class="w-50">
-      <img
-        class="card-img-top menu-image restaurant-image"
-        src="{{ selectedRestaurantDetail[0].restaurantImage }}"
-        alt="Card image cap"
-      />
-    </div>
-  </div>
-</section>
-
-<div class="menu-data">
-  <div>
-    <ul class="nav nav-pills">
-      <li
-        class="nav-item highlight-categories"
-        [ngClass]="{ highlight: selectedItem === 'All' }"
-      >
-        <span class="nav-link" (click)="filterData($event)">All</span>
-      </li>
-      <li
-        class="nav-item highlight-categories"
-        *ngFor="let item of itemCategoriesList | keyvalue"
-        [ngClass]="{ highlight: selectedItem === item.key }"
-      >
-        <span class="nav-link" (click)="filterData($event)"
-          >{{ item.key }} ({{ item.value }})</span
-        >
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h2>Menu</h2>
-
-    <div class="d-flex flex-row flex-wrap justify-content-between">
-      <div
-        class="align-restaurants"
-        *ngFor="let menu of selectedRestaurantMenus"
-      >
+      <div class="w-50">
         <img
-          class="card-img-top"
-          src="{{ menu.itemPhoto }}"
+          class="card-img-top menu-image restaurant-image"
+          src="{{ selectedRestaurantDetail[0].restaurantImage }}"
           alt="Card image cap"
-        />
-        <div class="card-body">
-          <div class="d-flex justify-content-between">
-            <div class="d-inline-block">
-              <h4 class="card-title">{{ menu.itemName }}</h4>
-            </div>
-            <div class="d-inline-block">
-              <h4 class="card-title highlight-currency">
-                {{ menu.itemCost | currency: "GBP" }}
-              </h4>
-            </div>
+          />
+        </div>
+      </div>
+    </section>
+  }
+
+  <div class="menu-data">
+    <div>
+      <ul class="nav nav-pills">
+        <li
+          class="nav-item highlight-categories"
+          [ngClass]="{ highlight: selectedItem === 'All' }"
+          >
+          <span class="nav-link" (click)="filterData($event)">All</span>
+        </li>
+        @for (item of itemCategoriesList | keyvalue; track item) {
+          <li
+            class="nav-item highlight-categories"
+            [ngClass]="{ highlight: selectedItem === item.key }"
+            >
+            <span class="nav-link" (click)="filterData($event)"
+              >{{ item.key }} ({{ item.value }})</span
+              >
+            </li>
+          }
+        </ul>
+      </div>
+      <div>
+        <h2>Menu</h2>
+
+        <div class="d-flex flex-row flex-wrap justify-content-between">
+          @for (menu of selectedRestaurantMenus; track menu) {
+            <div
+              class="align-restaurants"
+              >
+              <img
+                class="card-img-top"
+                src="{{ menu.itemPhoto }}"
+                alt="Card image cap"
+                />
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-inline-block">
+                      <h4 class="card-title">{{ menu.itemName }}</h4>
+                    </div>
+                    <div class="d-inline-block">
+                      <h4 class="card-title highlight-currency">
+                        {{ menu.itemCost | currency: "GBP" }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>

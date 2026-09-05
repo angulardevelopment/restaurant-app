@@ -1,7 +1,7 @@
 <div
   class="filter-block event-main-banner"
   style="display: flex; flex-direction: column;z-index: 9999;"
->
+  >
   <div class="d-flex" style="justify-content: space-between; margin: 15px">
     <div>
       <h2>Search filters</h2>
@@ -21,51 +21,52 @@
           src="assets/images/Icon.svg"
           alt=""
           class="center-block center-item"
-        />
-      </div>
-      <p class="open-box">open</p>
-    </div>
-  </div>
-
-  <div style="flex: auto; margin: 15px">
-    <h2>Cuisine</h2>
-
-    <div class="d-flex flex-row flex-wrap">
-      <div
-        class="p-2 order-image"
-        style="margin: 10px;cursor: pointer;"
-        (click)="filterData($event)"
-        [ngClass]="{ 'highlight-cuisine': selectedItem === 'All' }"
-      >
-        <span>All</span>
-      </div>
-
-      <div
-        class="p-2 order-image"
-        *ngFor="let item of allRestaurantCuisines | keyvalue"
-        style="margin: 10px;cursor: pointer;"
-        (click)="filterData($event)"
-        [ngClass]="{ 'highlight-cuisine': selectedItem === item.key }"
-      >
-        <span>{{ item.key }}</span>
+          />
+        </div>
+        <p class="open-box">open</p>
       </div>
     </div>
 
-    <div class="d-flex justify-content-between" style="margin: 20px">
-      <div class="open-box">See more</div>
+    <div style="flex: auto; margin: 15px">
+      <h2>Cuisine</h2>
 
-      <div>
+      <div class="d-flex flex-row flex-wrap">
+        <div
+          class="p-2 order-image"
+          style="margin: 10px;cursor: pointer;"
+          (click)="filterData($event)"
+          [ngClass]="{ 'highlight-cuisine': selectedItem === 'All' }"
+          >
+          <span>All</span>
+        </div>
+
+        @for (item of allRestaurantCuisines | keyvalue; track item) {
+          <div
+            class="p-2 order-image"
+            style="margin: 10px;cursor: pointer;"
+            (click)="filterData($event)"
+            [ngClass]="{ 'highlight-cuisine': selectedItem === item.key }"
+            >
+            <span>{{ item.key }}</span>
+          </div>
+        }
+      </div>
+
+      <div class="d-flex justify-content-between" style="margin: 20px">
+        <div class="open-box">See more</div>
+
         <div>
-          <img src="assets/images/down-silver.svg" alt="" />
+          <div>
+            <img src="assets/images/down-silver.svg" alt="" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <button
-    class="btn-filter detail-btn"
-    style="flex: none; text-transform: capitalize"
-  >
-    apply filters
-  </button>
-</div>
+    <button
+      class="btn-filter detail-btn"
+      style="flex: none; text-transform: capitalize"
+      >
+      apply filters
+    </button>
+  </div>

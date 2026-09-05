@@ -2,47 +2,49 @@
   <h2>Category</h2>
 
   <div class="d-flex flex-row">
-    <div
-      class="align-categories"
-      *ngFor="let item of allRestaurantCategories | keyvalue"
-    >
-      <img style="vertical-align: middle" src="assets/images/path410.svg" />
-      <span class="p-2">{{ item.key }} </span>
-    </div>
+    @for (item of allRestaurantCategories | keyvalue; track item) {
+      <div
+        class="align-categories"
+        >
+        <img style="vertical-align: middle" src="assets/images/path410.svg" />
+        <span class="p-2">{{ item.key }} </span>
+      </div>
+    }
   </div>
 </section>
 
 <section>
   <h2>Restaurants</h2>
   <div class="d-flex flex-row flex-wrap justify-content-between">
-    <div
-      class="align-restaurants"
-      *ngFor="let item of selectedRestaurantList"
-      (click)="openRestaurantDetail(item.id)"
-     style="cursor: pointer">
-      <img
-        class="card-img-top"
-        src="{{ item.restaurantImage }}"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <div class="d-inline-block">
-            <h4 class="card-title">{{ item.restaurantName }}</h4>
-          </div>
-          <div class="d-inline-block">
-            <h6
-              class="card-title"
-              [ngClass]="item.isOpen ? 'open-restaurant' : 'close-restaurant'"
-            >
-              {{ item.isOpen ? "Open Now" : "Closed" }}
-            </h6>
+    @for (item of selectedRestaurantList; track item) {
+      <div
+        class="align-restaurants"
+        (click)="openRestaurantDetail(item.id)"
+        style="cursor: pointer">
+        <img
+          class="card-img-top"
+          src="{{ item.restaurantImage }}"
+          alt="Card image cap"
+          />
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="d-inline-block">
+                <h4 class="card-title">{{ item.restaurantName }}</h4>
+              </div>
+              <div class="d-inline-block">
+                <h6
+                  class="card-title"
+                  [ngClass]="item.isOpen ? 'open-restaurant' : 'close-restaurant'"
+                  >
+                  {{ item.isOpen ? "Open Now" : "Closed" }}
+                </h6>
+              </div>
+            </div>
+            <p class="card-text">
+              {{ item.restaurantDescription | slice: 0:97 }} ...
+            </p>
           </div>
         </div>
-        <p class="card-text">
-          {{ item.restaurantDescription | slice: 0:97 }} ...
-        </p>
-      </div>
+      }
     </div>
-  </div>
-</section>
+  </section>

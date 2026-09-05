@@ -3,12 +3,13 @@
   <div   [ngClass]="{ 'blur-element': addBlurOnElement === true }">
 
 
-</div>
+  </div>
 
-<app-filter
-*ngIf="fiterPopup"
-(closePopup)="fiterPopup = $event"
-class="NonOpaque"></app-filter>
+  @if (fiterPopup) {
+    <app-filter
+      (closePopup)="fiterPopup = $event"
+    class="NonOpaque"></app-filter>
+  }
 
   <div id="sidebar">
     <header class="align-head">
@@ -41,132 +42,132 @@ class="NonOpaque"></app-filter>
     <div
       class="text-center row d-flex justify-content-center order-popup"
       style="background: #ffffff; border-radius: 8px"
-    >
+      >
 
       <div class="block order-image">
         <img
           src="assets/images/cross.svg"
           alt=""
           class="center-block center-item"
-        />
-      </div>
-      <h5 class="order-ready">Your Order is now Ready</h5>
-      <p>Splint Doumo</p>
-      <p>Order Id: #ED564F</p>
-      <button class="detail-btn">Details</button>
-    </div>
-
-    <footer class="d-flex justify-content-around">
-      <div>
-        <h5>Mark Clarke</h5>
-        <p class="footer-body">markclarkeatgmail.com</p>
-      </div>
-
-      <div>
-        <img
-          src="assets/images/up.svg"
-          alt=""
-          class="center-block center-item"
-        />
-        <img
-          src="assets/images/down.svg"
-          alt=""
-          class="center-block center-item"
-        />
-      </div>
-    </footer>
-  </div>
-  <!-- Content -->
-  <div id="content">
-    <header>
-      <div
-        class="d-flex center-item"
-        style="padding-right: 15px; padding-left: 15px"
-      >
-        <div class="block" style="flex: none">
-          <img
-            src="assets/images/Icon.svg"
-            alt=""
-            class="center-block center-item"
           />
         </div>
+        <h5 class="order-ready">Your Order is now Ready</h5>
+        <p>Splint Doumo</p>
+        <p>Order Id: #ED564F</p>
+        <button class="detail-btn">Details</button>
+      </div>
 
-        <div
-          class="d-flex"
+      <footer class="d-flex justify-content-around">
+        <div>
+          <h5>Mark Clarke</h5>
+          <p class="footer-body">markclarkeatgmail.com</p>
+        </div>
+
+        <div>
+          <img
+            src="assets/images/up.svg"
+            alt=""
+            class="center-block center-item"
+            />
+            <img
+              src="assets/images/down.svg"
+              alt=""
+              class="center-block center-item"
+              />
+            </div>
+          </footer>
+        </div>
+        <!-- Content -->
+        <div id="content">
+          <header>
+            <div
+              class="d-flex center-item"
+              style="padding-right: 15px; padding-left: 15px"
+              >
+              <div class="block" style="flex: none">
+                <img
+                  src="assets/images/Icon.svg"
+                  alt=""
+                  class="center-block center-item"
+                  />
+                </div>
+
+                <div
+                  class="d-flex"
           style="
             flex: auto;
             width: 100%;
             justify-content: right;
             text-align: right;
           "
-        >
-          <div class="d-flex" style="margin: 0px 36px; align-items: center">
-            <div class="block">
-              <img
-                style="vertical-align: middle"
-                src="assets/images/Icon.svg"
-                class="center-block center-item"
-              />
-            </div>
+                  >
+                  <div class="d-flex" style="margin: 0px 36px; align-items: center">
+                    <div class="block">
+                      <img
+                        style="vertical-align: middle"
+                        src="assets/images/Icon.svg"
+                        class="center-block center-item"
+                        />
+                      </div>
 
-            <div style="align-self: center">
-              <span class="add-spacing align-block">Da Otto</span>
-            </div>
-            <div style="padding-left: 10px">
-              <img
-                src="assets/images/up.svg"
-                alt=""
-                style="width: 10px; height: 6px"
-              />
-              <img
-                src="assets/images/down.svg"
-                alt=""
-                class="center-block"
-                style="width: 10px; height: 6px"
-              />
-            </div>
-          </div>
-          <div class="main">
-            <div class="form-group has-search" style="position: relative">
-              <span
-                class="fa fa-search form-control-feedback"
-                style="top: 12px; width: 20px; height: 20px; left: 6px"
-              ></span>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Search for Restaurants  (Press Enter to search)"
-                style="width: 338px; height: 48px; margin: 0 px"
-              />
-            </div>
-          </div>
+                      <div style="align-self: center">
+                        <span class="add-spacing align-block">Da Otto</span>
+                      </div>
+                      <div style="padding-left: 10px">
+                        <img
+                          src="assets/images/up.svg"
+                          alt=""
+                          style="width: 10px; height: 6px"
+                          />
+                          <img
+                            src="assets/images/down.svg"
+                            alt=""
+                            class="center-block"
+                            style="width: 10px; height: 6px"
+                            />
+                          </div>
+                        </div>
+                        <div class="main">
+                          <div class="form-group has-search" style="position: relative">
+                            <span
+                              class="fa fa-search form-control-feedback"
+                              style="top: 12px; width: 20px; height: 20px; left: 6px"
+                            ></span>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Search for Restaurants  (Press Enter to search)"
+                              style="width: 338px; height: 48px; margin: 0 px"
+                              />
+                            </div>
+                          </div>
 
-          <div class="block" (click)="openFilter('fiterPopup')" style="cursor: pointer;">
-            <img
-              src="assets/images/Icon.svg"
-              alt="basket"
-              class="center-block center-item"
-            />
-          </div>
+                          <div class="block" (click)="openFilter('fiterPopup')" style="cursor: pointer;">
+                            <img
+                              src="assets/images/Icon.svg"
+                              alt="basket"
+                              class="center-block center-item"
+                              />
+                            </div>
 
-          <div class="block basket">
-            <img
-              src="assets/images/Icon.svg"
-              alt="filter"
-              class="center-block center-item"
-            />
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="container-fluid">
+                            <div class="block basket">
+                              <img
+                                src="assets/images/Icon.svg"
+                                alt="filter"
+                                class="center-block center-item"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </header>
+                        <div class="container-fluid">
 
-      <router-outlet></router-outlet>
-
-
+                          <router-outlet></router-outlet>
 
 
-    </div>
-  </div>
 
-</div>
+
+                        </div>
+                      </div>
+
+                    </div>

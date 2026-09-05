@@ -1,13 +1,15 @@
 import { DataService } from './../../services/data.service';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { FilterComponent } from '../filter/filter.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  standalone: false
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    imports: [NgClass, FilterComponent, RouterOutlet]
 })
 export class HomeComponent implements OnInit {
   restaurantList = [];
