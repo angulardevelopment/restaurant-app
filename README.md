@@ -19,9 +19,22 @@ I'm Sam, and I'm passionate about product engineering and web development. I cre
 - **[ Video Conferencing Tool ]**: [Unlock the potential of video conferencing software development. Dive into our guide for insights on key features and cost factors.  If you're looking to integrate video communication into your app or planning to build a video streaming/conference app from scratch, create a fully customized audio & video conferencing app.]
 
 
-### About the app
+### About the Restaurant app
 https://www.figma.com/file/VZoJ638vnlfIfCXcYu7qEf/Web-Dev-test?node-id=0%3A1
 
+A responsive, modern restaurant ordering application built with **Angular**. Designed to deliver a seamless food discovery and checkout experience with modular component architecture, reactive state management, and an intuitive UI.
+
+### ✨ Key Features
+- **Dynamic Menu Catalog:** Browse food and beverage categories with live search and filter options.
+- **Cart & Order Flow:** Real-time item additions, quantity adjustments, and subtotal calculation.
+- **Responsive Layout:** Optimized for mobile ordering, tablets, and desktop browsers.
+- **Clean Architecture:** Built using Angular best practices, modular components, and typed models.
+
+### 🛠️ Tech Stack
+- **Framework:** Angular
+- **State & Data Handling:** RxJS / Angular Services
+- **Styling:** CSS3 / SCSS / Tailwind (or Angular Material)
+- **Tooling:** Angular CLI
 
 ### useful commands to run project
 
